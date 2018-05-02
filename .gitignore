@@ -59,3 +59,5 @@ ios/Pods/
 ios/Podfile.lock
 /ios/Gemfile.lock
 *.cer
+/ios/*.app.*
+/ios/*.mobileprovision
