@@ -1,0 +1,21 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "jest": true,
+      "browser": true
+    },
+    "plugins": [
+        "react",
+        "react-native",
+        "jsx-a11y",
+        "import"
+    ],
+    "rules": {
+      "semi": [1, "never"],
+      "max-len": [1, { "code": 160 }],
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "no-confusing-arrow": [0, "never"],
+      "no-use-before-define": [0, "never"]
+    }
+}
