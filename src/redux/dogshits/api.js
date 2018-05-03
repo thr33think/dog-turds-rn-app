@@ -24,11 +24,12 @@ export async function dogshitsAdd(newEntry) {
   const reqInit = {
     method: 'POST',
     headers: DEFAULT_HEADERS,
+    body: JSON.stringify(newEntry),
   }
 
-  const response = await fetch(`${API_URL}/add`, reqInit)
+  const response = await fetch(`${API_URL}/turds`, reqInit)
   if (!response.ok) {
-    console.error(await response.json())
+    console.error(await response.text())
     throw new Error('Bad request')
   }
   return response.json()

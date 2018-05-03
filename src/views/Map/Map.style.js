@@ -17,16 +17,6 @@ export const StyledView = styled.View`
   flex: 1;
 `
 
-export const StyledButton = styled.TouchableOpacity`
-  background-color: ${palette('primary', 0)};
-  border-radius: 20;
-  width: 40;
-  height: 40;
-  margin-bottom: 10;
-  align-items: center;
-  justify-content: center;
-`
-
 export const StyledButtonList = styled.View`
   position: absolute;
   bottom: 0;

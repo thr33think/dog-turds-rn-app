@@ -13,6 +13,7 @@ import java.util.List;
 
 import com.airbnb.android.react.maps.MapsPackage;
 import com.wix.RNCameraKit.RNCameraKitPackage;
+import com.rnfs.RNFSPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -27,7 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
           new MapsPackage(),
-          new RNCameraKitPackage()
+          new RNCameraKitPackage(),
+          new RNFSPackage()
       );
     }
 

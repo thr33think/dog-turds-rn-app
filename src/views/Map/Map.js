@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { ActivityIndicator, Text } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { connect } from 'react-redux'
-import { StyledView, StyledMap, StyledButton, StyledButtonList } from './Map.style'
+import { CameraKitCamera } from 'react-native-camera-kit'
+import { StyledView, StyledMap, StyledButtonList } from './Map.style'
 import { getDogshits, getTurd, clearImage } from './../../redux/dogshits/actions'
 import TurdMarker from './TurdMarker'
+import RoundButton from './../../components/RoundButton'
 
 @connect(
   state => ({
@@ -22,7 +24,8 @@ class Map extends Component {
 
     this.state = {
       position: null,
-      permissionDeniedGeolocation: '',
+      permissionDeniedGeolocation: false,
+      permissionGrantedCamera: true,
     }
   }
 
@@ -36,7 +39,6 @@ class Map extends Component {
   showMessageIfLocationAccessDenied = () => this.setState({ permissionDeniedGeolocation: true })
 
   centerMap = () => {
-    console.log('center map called')
     navigator.geolocation.getCurrentPosition((position) => {
       this.mapView.animateToCoordinate(
         {
@@ -48,14 +50,23 @@ class Map extends Component {
     }, this.showMessageIfLocationAccessDenied)
   }
 
+  handleAddImage = async () => {
+    const permissionGrantedCamera = await CameraKitCamera.checkDeviceCameraAuthorizationStatus()
+
+    this.setState({ permissionGrantedCamera })
+    if (this.state.permissionGrantedCamera) {
+      this.props.navigation.push('AddImage', { position: this.state.position })
+    }
+  }
+
   renderButtons = () => (
     <StyledButtonList>
-      {/* <StyledButton onPress={() => this.props.navigation.push('AddImage')}>
-        <Icon name="add" size={20} color="#FFFFFF" />
-      </StyledButton> */}
-      <StyledButton onPress={() => this.centerMap()}>
-        <Icon name="gps-fixed" size={20} color="#FFFFFF" />
-      </StyledButton>
+      <RoundButton onPress={this.handleAddImage}>
+        <Icon name="add" size={25} color="#FFFFFF" />
+      </RoundButton>
+      <RoundButton onPress={() => this.centerMap()}>
+        <Icon name="gps-fixed" size={25} color="#FFFFFF" />
+      </RoundButton>
     </StyledButtonList>
   )
 
@@ -86,6 +97,10 @@ class Map extends Component {
   render() {
     if (this.state.permissionDeniedGeolocation) {
       return <StyledView><Text>You need to allow location access in your phone's settings otherwise you cannot use the turd map</Text></StyledView>
+    }
+
+    if (!this.state.permissionGrantedCamera) {
+      return <StyledView><Text>You need to allow access to your camera to add turds</Text></StyledView>
     }
 
     return (

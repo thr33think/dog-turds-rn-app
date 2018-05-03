@@ -14,7 +14,7 @@ export const MapRoutes = StackNavigator({
     screen: AddImage,
     navigationOptions: {
       gesturesEnabled: false,
-      title: 'Add new Image',
+      title: 'Add a turd',
     },
   },
 }, {

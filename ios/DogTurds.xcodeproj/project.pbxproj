@@ -49,6 +49,7 @@
 		9400F79C20935C51000A4EEC /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9400F76C20935C51000A4EEC /* SimpleLineIcons.ttf */; };
 		9400F79D20935C51000A4EEC /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9400F76D20935C51000A4EEC /* MaterialIcons.ttf */; };
 		9400F7B620935F18000A4EEC /* libReactNativeCameraKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9400F7B520935F0D000A4EEC /* libReactNativeCameraKit.a */; };
+		94FEB715209B022300EA1EF9 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FEB714209B021000EA1EF9 /* libRNVectorIcons.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B42D2D397C66A4B5779DEF7A /* libPods-DogTurds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7D191D6BCAB3A93679B914 /* libPods-DogTurds.a */; };
 /* End PBXBuildFile section */
@@ -327,6 +328,13 @@
 			remoteGlobalIDString = 2646934E1CFB2A6B00F3A740;
 			remoteInfo = ReactNativeCameraKit;
 		};
+		94FEB713209B021000EA1EF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94FEB6E9209B021000EA1EF9 /* RNVectorIcons.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
+			remoteInfo = RNVectorIcons;
+		};
 		ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -376,6 +384,7 @@
 		9400F76C20935C51000A4EEC /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		9400F76D20935C51000A4EEC /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		9400F7B020935F0C000A4EEC /* ReactNativeCameraKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeCameraKit.xcodeproj; path = "../node_modules/react-native-camera-kit/ios/lib/ReactNativeCameraKit.xcodeproj"; sourceTree = "<group>"; };
+		94FEB6E9209B021000EA1EF9 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		DE6B6CBEB8FF36376CC8D447 /* Pods-DogTurds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogTurds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DogTurds/Pods-DogTurds.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -393,6 +402,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94FEB715209B022300EA1EF9 /* libRNVectorIcons.a in Frameworks */,
 				9400F7B620935F18000A4EEC /* libReactNativeCameraKit.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -593,6 +603,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				94FEB6E9209B021000EA1EF9 /* RNVectorIcons.xcodeproj */,
 				9400F7B020935F0C000A4EEC /* ReactNativeCameraKit.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -667,6 +678,14 @@
 			isa = PBXGroup;
 			children = (
 				9400F7B520935F0D000A4EEC /* libReactNativeCameraKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94FEB6EA209B021000EA1EF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94FEB714209B021000EA1EF9 /* libRNVectorIcons.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -773,7 +792,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 9379H4WN85;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -849,6 +868,10 @@
 				{
 					ProductGroup = 9400F7B120935F0C000A4EEC /* Products */;
 					ProjectRef = 9400F7B020935F0C000A4EEC /* ReactNativeCameraKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 94FEB6EA209B021000EA1EF9 /* Products */;
+					ProjectRef = 94FEB6E9209B021000EA1EF9 /* RNVectorIcons.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1121,6 +1144,13 @@
 			remoteRef = 9400F7B420935F0D000A4EEC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		94FEB714209B021000EA1EF9 /* libRNVectorIcons.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNVectorIcons.a;
+			remoteRef = 94FEB713209B021000EA1EF9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1362,11 +1392,11 @@
 			baseConfigurationReference = DE6B6CBEB8FF36376CC8D447 /* Pods-DogTurds.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 9379H4WN85;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DogTurds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1376,8 +1406,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dog.turds;
 				PRODUCT_NAME = DogTurds;
-				PROVISIONING_PROFILE = "f4cad861-398b-414d-a872-7411f58eb8a3";
-				PROVISIONING_PROFILE_SPECIFIER = "dog.turds AppStore";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1387,11 +1417,11 @@
 			baseConfigurationReference = 049C8F5D6FC5056EDCFDAFFA /* Pods-DogTurds.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = 9379H4WN85;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DogTurds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1401,8 +1431,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dog.turds;
 				PRODUCT_NAME = DogTurds;
-				PROVISIONING_PROFILE = "f4cad861-398b-414d-a872-7411f58eb8a3";
-				PROVISIONING_PROFILE_SPECIFIER = "dog.turds AppStore";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

@@ -1,5 +1,5 @@
 export const dogshit = {
-  uri: process.env.API_URL,
+  uri: 'https://api.turds.dog',
 }
 
 export default dogshit

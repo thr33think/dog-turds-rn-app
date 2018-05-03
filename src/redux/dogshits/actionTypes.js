@@ -46,10 +46,9 @@ export function dogshitsAdd(state) {
   }
 }
 
-export function dogshitsAddSuccess(state, action) {
+export function dogshitsAddSuccess(state) {
   return {
     ...state,
-    records: action.payload,
     isLoading: false,
     hasError: false,
   }
