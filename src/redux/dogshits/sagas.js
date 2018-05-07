@@ -15,8 +15,8 @@ export function* dogshitsAdd(action) {
   try {
     yield call(Api.dogshitsAdd, action.payload)
     yield put({ type: actionTypes.DOGSHITS_ADD_SUCCESS })
+    yield put({ type: actionTypes.DOGSHITS_LIST })
   } catch (error) {
-    alert(error.message)
     yield put({ type: actionTypes.DOGSHITS_ADD_ERROR, payload: error.message })
   }
 }
