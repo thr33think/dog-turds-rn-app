@@ -3,13 +3,14 @@ import styled from 'styled-components'
 
 export const StyledImage = styled.Image`
   border-width: 1;
+  border-color: red;
   width: 200;
   height: 200;
-  position: relative;
 `
 
 export const StyledView = styled.View`
-  width: 200;
-  height: 200;
+  width: 220;
+  height: 220;
+  align-items: center;
   justify-content: center;
 `
