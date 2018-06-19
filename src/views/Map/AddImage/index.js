@@ -24,7 +24,7 @@ class AddImage extends Component {
   handleCapture = async () => {
     const image = await this.camera.capture(false)
     const base64Image = await readFile(image.uri, 'base64')
-    this.setState({ imageCaptured: `data:image/jpeg;base64,${base64Image}` })
+    this.setState({ imageCaptured: base64Image })
   }
 
   handleImageOk = async () => {
@@ -45,7 +45,7 @@ class AddImage extends Component {
 
   renderImageDone = () => (
     <StyledView>
-      <StyledImage source={{ uri: this.state.imageCaptured }} />
+      <StyledImage source={{ uri: `data:image/jpeg;base64,${this.state.imageCaptured}` }} />
       <StyledBottomView>
         <RoundButton onPress={this.handleImageOk}>
           <Icon name="ios-checkmark-outline" size={50} color="#FFFFFF" />

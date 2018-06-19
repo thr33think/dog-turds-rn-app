@@ -20,12 +20,6 @@ export function getTurd(id) {
   }
 }
 
-export function clearImage() {
-  return {
-    type: actionTypes.DOGSHITS_GET_CLEAR_IMAGE,
-  }
-}
-
 export default {
   getDogshits,
   addDogshit,

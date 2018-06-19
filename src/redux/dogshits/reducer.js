@@ -4,7 +4,6 @@ export const initState = {
   records: [],
   isLoading: false,
   hasError: false,
-  currentTurd: null,
 }
 
 export default (state = initState, action) => {

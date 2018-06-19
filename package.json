@@ -1,6 +1,6 @@
 {
-  "name": "DogTurds",
-  "version": "0.0.1",
+  "name": "dog-turds-rn-app",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "ios": "react-native run-ios",
@@ -10,15 +10,16 @@
     "test": "node node_modules/jest/bin/jest.js"
   },
   "dependencies": {
+    "moment": "^2.22.2",
     "prop-types": "^15.6.1",
-    "react": "16.3.1",
+    "react": "16.4.1",
     "react-native": "0.55.4",
     "react-native-camera-kit": "^6.2.4",
     "react-native-fetch-blob": "^0.10.8",
     "react-native-fs": "^2.10.14",
     "react-native-maps": "^0.21.0",
     "react-native-vector-icons": "^4.5.0",
-    "react-navigation": "^2.2.5",
+    "react-navigation": "^2.3.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-persist": "^5.10.0",
@@ -43,7 +44,7 @@
     "fetch-mock": "^6.4.4",
     "jest": "^23.1.0",
     "jest-styled-components": "^5.0.0",
-    "react-test-renderer": "^16.4.0",
+    "react-test-renderer": "^16.4.1",
     "remotedev-server": "^0.2.4"
   },
   "jest": {

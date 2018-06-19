@@ -84,11 +84,9 @@ class Map extends Component {
     >
       {this.props.dogshitsState.records.map(turd => (
         <TurdMarker
-          key={turd.id}
+          key={`turd_${turd.id}`}
           turd={turd}
-          getTurdFn={this.props.getTurd}
-          clearImageFn={this.props.clearImage}
-          turdImage={this.props.dogshitsState.currentTurd}
+          navigation={this.props.navigation}
         />
       ))}
     </StyledMap>
@@ -96,7 +94,7 @@ class Map extends Component {
 
   render() {
     if (this.state.permissionDeniedGeolocation) {
-      return <StyledView><Text>You need to allow location access in your phone's settings otherwise you cannot use the turd map</Text></StyledView>
+      return <StyledView><Text>You need to allow location access in your phone&apos;s settings otherwise you cannot use the turd map</Text></StyledView>
     }
 
     if (!this.state.permissionGrantedCamera) {

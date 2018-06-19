@@ -70,12 +70,11 @@ export function dogshitsGet(state) {
   }
 }
 
-export function dogshitsGetSuccess(state, action) {
+export function dogshitsGetSuccess(state) {
   return {
     ...state,
     isLoading: false,
     hasError: false,
-    currentTurd: action.payload.image_base64,
   }
 }
 
@@ -84,17 +83,8 @@ export function dogshitsGetError(state) {
     ...state,
     isLoading: false,
     hasError: true,
-    currentTurd: null,
   }
 }
-
-export function dogshitsGetClearImage(state) {
-  return {
-    ...state,
-    currentTurd: null,
-  }
-}
-
 export const actionHandlers = {
   [actionTypes.DOGSHITS_LIST]: dogshitsList,
   [actionTypes.DOGSHITS_LIST_SUCCESS]: dogshitsListSuccess,
@@ -107,5 +97,4 @@ export const actionHandlers = {
   [actionTypes.DOGSHITS_GET]: dogshitsGet,
   [actionTypes.DOGSHITS_GET_SUCCESS]: dogshitsGetSuccess,
   [actionTypes.DOGSHITS_GET_ERROR]: dogshitsGetError,
-  [actionTypes.DOGSHITS_GET_CLEAR_IMAGE]: dogshitsGetClearImage,
 }

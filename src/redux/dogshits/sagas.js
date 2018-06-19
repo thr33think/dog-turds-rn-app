@@ -14,8 +14,7 @@ export function* dogshitsList() {
 export function* dogshitsAdd(action) {
   try {
     yield call(Api.dogshitsAdd, action.payload)
-    yield put({ type: actionTypes.DOGSHITS_ADD_SUCCESS })
-    yield put({ type: actionTypes.DOGSHITS_LIST })
+    yield put({ type: actionTypes.DOGSHITS_ADD_SUCCESS, payload: action.payload })
   } catch (error) {
     yield put({ type: actionTypes.DOGSHITS_ADD_ERROR, payload: error.message })
   }

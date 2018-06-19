@@ -1,6 +1,7 @@
 import { StackNavigator } from 'react-navigation'
 import Map from './Map'
 import AddImage from './AddImage'
+import ShowImage from './ShowImage'
 
 export const MapRoutes = StackNavigator({
   Map: {
@@ -17,8 +18,13 @@ export const MapRoutes = StackNavigator({
       title: 'Add a turd',
     },
   },
+  ShowImage: {
+    screen: ShowImage,
+    navigationOptions: {
+      gesturesEnabled: false,
+    },
+  },
 }, {
-  headerMode: 'float',
   mode: 'modal',
 })
 
