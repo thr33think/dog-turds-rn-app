@@ -55,7 +55,7 @@ class Map extends Component {
 
     this.setState({ permissionGrantedCamera })
     if (this.state.permissionGrantedCamera) {
-      this.props.navigation.push('AddImage', { position: this.state.position })
+      this.props.navigation.push('AddImage')
     }
   }
 

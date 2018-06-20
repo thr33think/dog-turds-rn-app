@@ -1,6 +1,7 @@
 import { all, takeEvery, fork, put, call } from 'redux-saga/effects'
 import { actionTypes } from './actionTypes'
 import * as Api from './api'
+import NavigationService from './../../services/NavigationService'
 
 export function* dogshitsList() {
   try {
@@ -14,7 +15,9 @@ export function* dogshitsList() {
 export function* dogshitsAdd(action) {
   try {
     yield call(Api.dogshitsAdd, action.payload)
-    yield put({ type: actionTypes.DOGSHITS_ADD_SUCCESS, payload: action.payload })
+    yield put({ type: actionTypes.DOGSHITS_ADD_SUCCESS })
+    yield put({ type: actionTypes.DOGSHITS_LIST })
+    NavigationService.navigate('Map')
   } catch (error) {
     yield put({ type: actionTypes.DOGSHITS_ADD_ERROR, payload: error.message })
   }
