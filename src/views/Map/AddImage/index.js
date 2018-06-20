@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { readFile } from 'react-native-fs'
 import { connect } from 'react-redux'
+import { ActivityIndicator } from 'react-native'
 import RoundButton from './../../../components/RoundButton'
-import { StyledView, StyledImage, StyledCameraKitCamera, StyledBottomView } from './AddImage.style'
+import { StyledView, StyledImage, StyledCameraKitCamera, StyledBottomView, StyledCenterView } from './AddImage.style'
 import { addDogshit } from './../../../redux/dogshits/actions'
 
 @connect(
-  null,
+  state => ({
+    dogshitsState: state.dogshits,
+  }),
   {
     addDogshit,
   },
@@ -28,15 +31,15 @@ class AddImage extends Component {
   }
 
   handleImageOk = async () => {
-    this.props.addDogshit({
-      lat: this.props.navigation.getParam('position').coords.latitude,
-      long: this.props.navigation.getParam('position').coords.longitude,
-      timestamp: Date.now().toString(),
-      image_base64: `${this.state.imageCaptured}`,
-      visible: true,
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.props.addDogshit({
+        lat: position.coords.latitude,
+        long: position.coords.longitude,
+        timestamp: Date.now().toString(),
+        image_base64: `${this.state.imageCaptured}`,
+        visible: true,
+      })
     })
-
-    this.props.navigation.push('Map')
   }
 
   handleRetake = async () => {
@@ -75,6 +78,10 @@ class AddImage extends Component {
   )
 
   render() {
+    if (this.props.dogshitsState.isLoading) {
+      return <StyledCenterView><ActivityIndicator /></StyledCenterView>
+    }
+
     if (this.state.imageCaptured) {
       return this.renderImageDone()
     }
