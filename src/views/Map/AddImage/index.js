@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { readFile } from 'react-native-fs'
 import { connect } from 'react-redux'
-import { ActivityIndicator } from 'react-native'
+import { ActivityIndicator, Dimensions, ImageEditor } from 'react-native'
 import RoundButton from './../../../components/RoundButton'
 import { StyledView, StyledImage, StyledCameraKitCamera, StyledBottomView, StyledCenterView } from './AddImage.style'
 import { addDogshit } from './../../../redux/dogshits/actions'
@@ -26,8 +26,19 @@ class AddImage extends Component {
 
   handleCapture = async () => {
     const image = await this.camera.capture(false)
-    const base64Image = await readFile(image.uri, 'base64')
-    this.setState({ imageCaptured: base64Image })
+    ImageEditor.cropImage(image.uri, {
+      offset: { x: 0, y: 0 },
+      size: { width: image.width, height: image.width },
+      displaySize: { width: 1080, height: 1080 },
+      resizeMode: 'contain',
+    }, async (croppedURI) => {
+      const base64Image = await readFile(croppedURI, 'base64')
+      this.setState({ imageCaptured: base64Image })
+    }, (err) => {
+      this.setState({ imageCaptured: null })
+    })
+    // const base64Image = await readFile(image.uri, 'base64')
+    // this.setState({ imageCaptured: base64Image })
   }
 
   handleImageOk = async () => {
@@ -46,27 +57,33 @@ class AddImage extends Component {
     this.setState({ imageCaptured: null })
   }
 
-  renderImageDone = () => (
-    <StyledView>
-      <StyledImage source={{ uri: `data:image/jpeg;base64,${this.state.imageCaptured}` }} />
-      <StyledBottomView>
-        <RoundButton onPress={this.handleImageOk}>
-          <Icon name="ios-checkmark-outline" size={50} color="#FFFFFF" />
-        </RoundButton>
-      </StyledBottomView>
-    </StyledView>
-  )
+  renderImageDone = () => {
+    const length = Dimensions.get('window').width
+
+    return (
+      <StyledView>
+        <StyledImage
+          style={{ height: length, width: length }}
+          source={{ uri: `data:image/jpeg;base64,${this.state.imageCaptured}` }}
+        />
+        <StyledBottomView>
+          <RoundButton onPress={this.handleImageOk}>
+            <Icon name="ios-checkmark-outline" size={50} color="#FFFFFF" />
+          </RoundButton>
+        </StyledBottomView>
+      </StyledView>
+    )
+  }
 
   renderTakeImage = () => (
     <StyledView>
       <StyledCameraKitCamera
+        style={{ height: Dimensions.get('window').width || 0 }}
         innerRef={(camera) => { this.camera = camera }}
         cameraOptions={{
           flashMode: 'auto',
           focusMode: 'on',
           zoomMode: 'on',
-          ratioOverlay: '1:1',
-          ratioOverlayColor: '#EFEFF4',
         }}
       />
       <StyledBottomView>
