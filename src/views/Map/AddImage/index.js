@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { readFile } from 'react-native-fs'
 import { connect } from 'react-redux'
-import { ActivityIndicator, Dimensions, ImageEditor } from 'react-native'
+import { ActivityIndicator, Dimensions, ImageEditor, ImageStore } from 'react-native'
 import RoundButton from './../../../components/RoundButton'
 import { StyledView, StyledImage, StyledCameraKitCamera, StyledBottomView, StyledCenterView } from './AddImage.style'
 import { addDogshit } from './../../../redux/dogshits/actions'
@@ -32,10 +32,16 @@ class AddImage extends Component {
       displaySize: { width: 1080, height: 1080 },
       resizeMode: 'contain',
     }, async (croppedURI) => {
-      const base64Image = await readFile(croppedURI, 'base64')
-      this.setState({ imageCaptured: base64Image })
+      ImageStore.getBase64ForTag(croppedURI, (base64Data) => {
+        this.setState({ imageCaptured: base64Data })
+        ImageStore.removeImageForTag(croppedURI)
+      }, (err) => {
+        this.setState({ imageCaptured: null })
+        console.warn(err)
+      })
     }, (err) => {
       this.setState({ imageCaptured: null })
+      console.warn(err)
     })
     // const base64Image = await readFile(image.uri, 'base64')
     // this.setState({ imageCaptured: base64Image })
