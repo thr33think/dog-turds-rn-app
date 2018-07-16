@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { StyledView, StyledImage, StyledText } from './ShowImage.style'
+import { Dimensions } from 'react-native'
+import { StyledView, StyledImage } from './ShowImage.style'
 
 class ShowImage extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -11,10 +12,16 @@ class ShowImage extends Component {
 
   render() {
     const turd = this.props.navigation.getParam('turd')
+    const length = Dimensions.get('window').width
 
     return (
       <StyledView>
-        <StyledImage source={{ uri: turd.image_url }} key={turd.image_url} />
+        <StyledImage
+          resizeMode="contain"
+          source={{ uri: turd.image_url }}
+          key={turd.image_url}
+          style={{ width: length, height: length }}
+        />
       </StyledView>
     )
   }

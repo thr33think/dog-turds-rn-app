@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 export const StyledView = styled.View`
-  height: 100%;
-  justify-content: flex-end;
   background: #EFEFF4;
+  height: 90%;
+  justify-content: center;
+  display: flex;
 `
 
 export const StyledImage = styled.Image`
-  flex: 1;
 `
 
 export const StyledText = styled.Image`
