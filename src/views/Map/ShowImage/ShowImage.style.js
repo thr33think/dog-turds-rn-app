@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const StyledView = styled.View`
-  background: #EFEFF4;
   height: 90%;
   justify-content: center;
   display: flex;
