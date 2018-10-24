@@ -1,9 +1,9 @@
 {
-  "presets": ["react-native"],
+  "presets": ["module:metro-react-native-babel-preset"],
   "sourceMaps": "inline",
   "plugins": [
     "inline-dotenv",
     "transform-inline-environment-variables",
-  	"transform-decorators-legacy"
+  	["@babel/plugin-proposal-decorators", { "legacy": true }]
   ]
 }

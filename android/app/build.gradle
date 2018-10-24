@@ -96,13 +96,13 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '27.0.3'
+    buildToolsVersion '28.0.2'
 
     defaultConfig {
         applicationId "com.dogturds"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 14
+        versionCode 27
         versionName "1.2.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
@@ -156,7 +156,7 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation project(":rncamerakit")
     implementation project(':react-native-fs')
-    implementation project(':react-native-vector-icons')
+    // implementation project(':react-native-vector-icons')
     implementation project(':react-native-fetch-blob')
     implementation(project(':react-native-maps')){
         exclude group: 'com.google.android.gms', module: 'play-services-base'
