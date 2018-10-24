@@ -14,6 +14,7 @@ import java.util.List;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.wix.RNCameraKit.RNCameraKitPackage;
 import com.rnfs.RNFSPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -29,7 +30,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
           new MapsPackage(),
           new RNCameraKitPackage(),
-          new RNFSPackage()
+          new RNFSPackage(),
+          new VectorIconsPackage()
       );
     }
 

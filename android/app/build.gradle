@@ -77,7 +77,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
-apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+// apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -156,7 +156,7 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation project(":rncamerakit")
     implementation project(':react-native-fs')
-    // implementation project(':react-native-vector-icons')
+    implementation project(':react-native-vector-icons')
     implementation project(':react-native-fetch-blob')
     implementation(project(':react-native-maps')){
         exclude group: 'com.google.android.gms', module: 'play-services-base'

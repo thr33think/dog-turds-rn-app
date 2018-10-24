@@ -328,6 +328,13 @@
 			remoteGlobalIDString = 2646934E1CFB2A6B00F3A740;
 			remoteInfo = ReactNativeCameraKit;
 		};
+		94218B822180B43C001DA069 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94FEB6E9209B021000EA1EF9 /* RNVectorIcons.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A39873CE1EA65EE60051E01A;
+			remoteInfo = "RNVectorIcons-tvOS";
+		};
 		94FEB713209B021000EA1EF9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 94FEB6E9209B021000EA1EF9 /* RNVectorIcons.xcodeproj */;
@@ -686,6 +693,7 @@
 			isa = PBXGroup;
 			children = (
 				94FEB714209B021000EA1EF9 /* libRNVectorIcons.a */,
+				94218B832180B43C001DA069 /* libRNVectorIcons-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -729,7 +737,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				5D3CB4BA8D941F3E0A54C452 /* [CP] Embed Pods Frameworks */,
 				A4051E21B00C0353497AA5F9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1144,6 +1151,13 @@
 			remoteRef = 9400F7B420935F0D000A4EEC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		94218B832180B43C001DA069 /* libRNVectorIcons-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNVectorIcons-tvOS.a";
+			remoteRef = 94218B822180B43C001DA069 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		94FEB714209B021000EA1EF9 /* libRNVectorIcons.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1233,21 +1247,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		5D3CB4BA8D941F3E0A54C452 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DogTurds/Pods-DogTurds-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		A4051E21B00C0353497AA5F9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
