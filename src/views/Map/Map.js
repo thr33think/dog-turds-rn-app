@@ -72,7 +72,7 @@ class Map extends Component {
 
   renderMap = () => (
     <StyledMap
-      innerRef={(mapView) => { this.mapView = mapView }}
+      ref={(mapView) => { this.mapView = mapView }}
       initialRegion={{
         latitude: this.state.position.coords.latitude,
         longitude: this.state.position.coords.longitude,
