@@ -63,3 +63,5 @@ ios/Podfile.lock
 /ios/*.mobileprovision
 /ios/fastlane/.env.default
 .env
+*.certSigningRequest
+*.p12
