@@ -6,6 +6,7 @@ import { ActivityIndicator, Dimensions, ImageEditor, ImageStore } from 'react-na
 import RoundButton from './../../../components/RoundButton'
 import { StyledView, StyledImage, StyledCameraKitCamera, StyledBottomView, StyledCenterView } from './AddImage.style'
 import { addDogshit } from './../../../redux/dogshits/actions'
+import NavigationService from './../../../services/NavigationService'
 
 @connect(
   state => ({
@@ -21,6 +22,13 @@ class AddImage extends Component {
     this.camera = React.createRef()
     this.state = {
       imageCaptured: null,
+    }
+  }
+
+  async componentWillMount() {
+    const cameraGranted = await StyledCameraKitCamera.requestDeviceCameraAuthorization()
+    if (!cameraGranted) {
+      NavigationService.navigate('Map')
     }
   }
 
@@ -85,7 +93,7 @@ class AddImage extends Component {
     <StyledView>
       <StyledCameraKitCamera
         style={{ height: Dimensions.get('window').width || 0 }}
-        innerRef={(camera) => { this.camera = camera }}
+        ref={(camera) => { this.camera = camera }}
         cameraOptions={{
           flashMode: 'auto',
           focusMode: 'on',
