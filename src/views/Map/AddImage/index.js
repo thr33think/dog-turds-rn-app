@@ -25,17 +25,12 @@ class AddImage extends Component {
     }
   }
 
-  async componentWillMount() {
-    const cameraGranted = await StyledCameraKitCamera.requestDeviceCameraAuthorization()
-    if (!cameraGranted) {
-      NavigationService.navigate('Map')
-    }
-  }
-
   handleCapture = async () => {
+    const offsetY = Dimensions.get('window').height / 2
     const image = await this.camera.capture(false)
+
     ImageEditor.cropImage(image.uri, {
-      offset: { x: 0, y: 0 },
+      offset: { x: 0, y: offsetY },
       size: { width: image.width, height: image.width },
       displaySize: { width: 1080, height: 1080 },
       resizeMode: 'contain',
@@ -82,7 +77,7 @@ class AddImage extends Component {
         />
         <StyledBottomView>
           <RoundButton onPress={this.handleImageOk}>
-            <Icon name="ios-checkmark-outline" size={50} color="#FFFFFF" />
+            <Icon name="ios-checkmark" size={50} color="#FFFFFF" />
           </RoundButton>
         </StyledBottomView>
       </StyledView>

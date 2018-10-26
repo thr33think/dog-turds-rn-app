@@ -21,7 +21,6 @@ import RoundButton from './../../components/RoundButton'
 class Map extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       position: null,
       permissionDeniedGeolocation: false,
@@ -53,9 +52,13 @@ class Map extends Component {
   handleAddImage = async () => {
     const permissionGrantedCamera = await CameraKitCamera.checkDeviceCameraAuthorizationStatus()
 
+    console.log('permissionGrantedCamera', permissionGrantedCamera)
+
     this.setState({ permissionGrantedCamera })
     if (this.state.permissionGrantedCamera) {
       this.props.navigation.push('AddImage')
+    } else {
+      await CameraKitCamera.requestDeviceCameraAuthorization()
     }
   }
 
