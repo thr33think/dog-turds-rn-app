@@ -24,11 +24,11 @@ class Map extends Component {
     this.state = {
       position: null,
       permissionDeniedGeolocation: false,
-      permissionGrantedCamera: true,
+      permissionGrantedCamera: 1,
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.getDogshits()
     navigator.geolocation.getCurrentPosition(this.storePositionInState, this.showMessageIfLocationAccessDenied)
   }
@@ -50,15 +50,20 @@ class Map extends Component {
   }
 
   handleAddImage = async () => {
-    const permissionGrantedCamera = await CameraKitCamera.checkDeviceCameraAuthorizationStatus()
-
-    console.log('permissionGrantedCamera', permissionGrantedCamera)
+    let permissionGrantedCamera = await CameraKitCamera.checkDeviceCameraAuthorizationStatus()
 
     this.setState({ permissionGrantedCamera })
-    if (this.state.permissionGrantedCamera) {
+    if (this.state.permissionGrantedCamera === 1) {
       this.props.navigation.push('AddImage')
     } else {
-      await CameraKitCamera.requestDeviceCameraAuthorization()
+      const userCameraPermission = await CameraKitCamera.requestDeviceCameraAuthorization()
+      permissionGrantedCamera = await CameraKitCamera.checkDeviceCameraAuthorizationStatus()
+
+      if (userCameraPermission || permissionGrantedCamera) {
+        this.props.navigation.push('AddImage')
+      } else {
+        this.setState({ permissionGrantedCamera })
+      }
     }
   }
 
@@ -100,7 +105,7 @@ class Map extends Component {
       return <StyledView><Text>You need to allow location access in your phone&apos;s settings otherwise you cannot use the turd map</Text></StyledView>
     }
 
-    if (!this.state.permissionGrantedCamera) {
+    if (this.state.permissionGrantedCamera === 0) {
       return <StyledView><Text>You need to allow access to your camera to add turds</Text></StyledView>
     }
 
